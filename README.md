@@ -1,6 +1,6 @@
 # Alurakut - Project by Imersão Alura 
 
-Link (13/07): alurakut-brunagil.vercel.app 
+Deployed @ 13/07: alurakut-brunagil.vercel.app 
 
 ---
 
@@ -25,6 +25,7 @@ yarn create next-app --example with-styled-components with-styled-components-app
 
 ## important links
 
+- Base project from [Alura](https://github.com/alura-challenges/alurakut/)
 - Layout @ [Figma](https://www.figma.com/file/168N0fV9URRLjBJ7H2x8LW/Alurakut-Copy?node-id=58%3A0)
 - API from [Github](https://api.github.com/users/brunagil/followers)
 
