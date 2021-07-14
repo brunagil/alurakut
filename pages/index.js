@@ -1,10 +1,61 @@
-import styled from 'styled-components'
+import Box from "./../src/components/Box";
+import MainGrid from "./../src/components/MainGrid";
+import { ProfileRelationsBoxWrapper } from "./../src/components/ProfileRelations";
+import { AlurakutMenu, OrkutNostalgicIconSet } from "./../lib/AlurakutCommons";
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
+const githubFavUsers = ["yogmel", "omariosouto", "PriTheodoro"];
+const myGithubUser = "brunagil";
+const name = "Bruna Gil"
+
+function ProfileSidebar(props) {
+  return (
+    <Box>
+      <img
+        src={`https://github.com/${props.githubUser}.png`}
+        style={{ borderRadius: "10px" }}
+      />
+      <p style={{ textAlign: 'center' }}>{name}</p>
+    </Box>
+  );
+}
 
 export default function Home() {
-  return <Title>My page</Title>
+  return (
+    <>
+      <AlurakutMenu />
+      <MainGrid>
+        <section className="profileArea" style={{ gridArea: "profileArea" }}>
+          <ProfileSidebar githubUser={myGithubUser} />
+        </section>
+        <main className="welcomeArea" style={{ gridArea: "welcomeArea" }}>
+          <Box>
+            <h1 className="title">Seja bem vinda</h1>
+            <OrkutNostalgicIconSet />
+          </Box>
+        </main>
+
+        <section
+          className="profileRelationsArea"
+          style={{ gridArea: "profileRelationsArea" }}
+        >
+          <ProfileRelationsBoxWrapper>
+            <h2 className="smallTitle">Pessoas da comunidade ({githubFavUsers.length})</h2>
+
+            <ul>
+              {githubFavUsers.map((user) => {
+                return (
+                  <li>
+                    <a href={`/users/${user}`} key={user}>
+                      <img src={`https://github.com/${user}.png`} />
+                      <span>{user}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </ProfileRelationsBoxWrapper>
+        </section>
+      </MainGrid>
+    </>
+  );
 }
