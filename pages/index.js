@@ -1,11 +1,14 @@
 import Box from "./../src/components/Box";
 import MainGrid from "./../src/components/MainGrid";
 import { ProfileRelationsBoxWrapper } from "./../src/components/ProfileRelations";
-import { AlurakutMenu, OrkutNostalgicIconSet } from "./../lib/AlurakutCommons";
+import {
+  AlurakutMenu,
+  AlurakutProfileSidebarMenuDefault,
+  OrkutNostalgicIconSet,
+} from "./../lib/AlurakutCommons";
 
 const githubFavUsers = ["yogmel", "omariosouto", "PriTheodoro"];
 const myGithubUser = "brunagil";
-const name = "Bruna Gil"
 
 function ProfileSidebar(props) {
   return (
@@ -14,7 +17,12 @@ function ProfileSidebar(props) {
         src={`https://github.com/${props.githubUser}.png`}
         style={{ borderRadius: "10px" }}
       />
-      <p style={{ textAlign: 'center' }}>{name}</p>
+      <hr />
+      <a className="boxLink" href={`https://github.com/${props.githubUser}`}>
+        @{props.githubUser}
+      </a>
+      <hr />
+      <AlurakutProfileSidebarMenuDefault />
     </Box>
   );
 }
@@ -39,7 +47,9 @@ export default function Home() {
           style={{ gridArea: "profileRelationsArea" }}
         >
           <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">Pessoas da comunidade ({githubFavUsers.length})</h2>
+            <h2 className="smallTitle">
+              Pessoas da comunidade ({githubFavUsers.length})
+            </h2>
 
             <ul>
               {githubFavUsers.map((user) => {
